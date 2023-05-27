@@ -1,7 +1,14 @@
 package main
 
-import "log"
+import (
+	"log"
+)
 
 func main() {
-	log.Println("Hello World")
+	log.Println("process start")
+	// fx.New(
+	// patterns
+	// fx.Provide(config.LoadConfig),
+	//
+	// )
 }
