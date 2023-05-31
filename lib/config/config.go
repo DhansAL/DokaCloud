@@ -17,8 +17,9 @@ type Config struct {
 	Db DatabaseConfig `mapstructure:"database"`
 }
 
-// LoadConfig reads configuration from file or environment variables.
-func LoadConfig() (config Config, err error) {
+// NewConfig reads configuration from file or environment variables.
+func NewConfig() (config *Config, err error) {
+	fmt.Print("Loading app configs :)")
 	viper := viper.New()
 	viper.SetConfigName("example")
 	viper.AddConfigPath("./config")
@@ -31,5 +32,6 @@ func LoadConfig() (config Config, err error) {
 	if err := viper.Unmarshal(&c); err != nil {
 		fmt.Printf("couldn't unmarshal config: %s", err)
 	}
-	return c, err
+	fmt.Println("app config loaded")
+	return &c, err
 }
