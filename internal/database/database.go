@@ -14,7 +14,7 @@ func NewDatabase(config *config.Config) (*ent.Client, error) {
 		log.Fatalf("failed opening connection to postgres: %v", err)
 	}
 	log.Println("connected to database")
-
+	defer client.Close()
 	return client, err
 
 }

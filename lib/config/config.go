@@ -13,8 +13,13 @@ import (
 type DatabaseConfig struct {
 	PostgresDSN string `mapstructure:"dsn"`
 }
+type AppConfig struct {
+	AppName string `mapstructure:"name"`
+	Port    string `mapstructure:"port"`
+}
 type Config struct {
-	Db DatabaseConfig `mapstructure:"database"`
+	Db  DatabaseConfig `mapstructure:"database"`
+	App AppConfig      `mapstructure:"app"`
 }
 
 // NewConfig reads configuration from file or environment variables.
